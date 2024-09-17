@@ -36,7 +36,7 @@ app.post('/posts', (req, res) =>
 });
 
 // Route to open the edit page
-app.get('/blogposts/edit/:id', (req, res) =>
+app.get('/posts/edit/:id', (req, res) =>
  {
   const postId = req.params.id;
   const post = posts[postId];
@@ -53,6 +53,7 @@ app.post('/posts/edit/:id', (req, res) =>
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
+    createdAt: new Date()
   };
   res.redirect('/');
 }
